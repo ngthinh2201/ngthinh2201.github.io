@@ -15,10 +15,64 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="/site.webmanifest">
+    <script src="musicPlayer.js" defer></script>
     <title>Nguyễn Đức Thịnh</title>
 
     <style>
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
 
+        .disc-container {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .disc {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+            animation-play-state: running;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .controls {
+            margin-left: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .controls button:hover {
+            color: #000;
+        }
     </style>
 </head>
 
@@ -145,171 +199,15 @@
                 </div>
             </div>
         </div>
+        <div class="music-player">
+            <div class="disc-container">
+                <img src="./images/music.jpg" alt="Music Disc" class="disc" id="disc">
+            </div>
+            <audio id="background-music" src="./music/music1.mp3" autoplay loop></audio>
+        </div>
     </div>
 
-    <script>
-        function initializeHeartCounter() {
-            const heartCounter = document.getElementById("heart-counter");
-            const savedCount = localStorage.getItem("heartCount");
-            const initialCount = savedCount ? parseInt(savedCount) : 12000; // Khởi tạo với số lượng tim đã lưu hoặc mặc định là 12000
-            document.getElementById("heart-count").textContent = initialCount;
-        }
-
-        function initializeShareCount() {
-            const shareCountElement = document.getElementById("share-count");
-            const savedShareCount = localStorage.getItem("shareCount");
-            const initialShareCount = savedShareCount ? parseInt(savedShareCount) : 1; // Khởi tạo với số lượt chia sẻ đã lưu hoặc mặc định là 1
-            shareCountElement.textContent = initialShareCount;
-        }
-
-        function createHeartAnimation() {
-            const heartCounter = document.getElementById("heart-counter");
-            const animationHeart = document.createElement("i");
-            animationHeart.classList.add("fas", "fa-heart", "heart-animation");
-            heartCounter.appendChild(animationHeart);
-
-            animationHeart.addEventListener("animationend", () => {
-                animationHeart.remove();
-            });
-        }
-
-        function incrementHeart() {
-            const heartCounter = document.getElementById("heart-counter");
-            const heartIcon = heartCounter.querySelector("i");
-            const heartCount = document.getElementById("heart-count");
-            let currentCount = parseInt(heartCount.textContent.trim());
-
-            if (!isNaN(currentCount)) {
-                currentCount += 1;
-                heartCount.textContent = currentCount;
-                localStorage.setItem("heartCount", currentCount);
-
-                heartIcon.classList.add("active");
-                createHeartAnimation();
-            }
-        }
-
-        function showCommentAlert() {
-            alert("Chức năng comment đang được cập nhật!");
-        }
-
-        function shareLink() {
-            const link = "https://doancongsinh.id.vn";
-            const shareCountElement = document.getElementById("share-count");
-
-            let shareCount = parseInt(shareCountElement.textContent.trim()) || 0;
-            shareCount += 1;
-
-            shareCountElement.textContent = shareCount;
-            localStorage.setItem("shareCount", shareCount);
-
-            navigator.clipboard.writeText(link).then(() => {
-                alert("Đã sao chép link web: " + link);
-            }).catch(err => {
-                alert("Không thể sao chép link. Vui lòng thử lại.");
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            initializeHeartCounter();
-            initializeShareCount();
-        });
-        const toggle = document.querySelector(".toggle__theme");
-        const card = document.querySelector(".app");
-        toggle.addEventListener("click", () => {
-            let theme = toggle.querySelector(".fas");
-            if (theme.classList.contains("fa-moon")) {
-                theme.classList.remove("fa-moon");
-                theme.classList.add("fa-sun");
-                card.classList.add("dark");
-            } else {
-
-                theme.classList.remove("fa-sun");
-                theme.classList.add("fa-moon");
-                card.classList.remove("dark");
-
-            }
-        })
-
-        //Chống copy
-        function killCopy(e) {
-            return false;
-        }
-
-        function reEnable() {
-            return true;
-        }
-
-        document.onselectstart = new Function("return false");
-
-        if (window.sidebar) {
-            document.onmousedown = killCopy;
-            document.onclick = reEnable;
-        }
-
-        function noteOut() {
-            var note = document.querySelector(".note");
-            note.style.display = "none";
-        }
-
-        setInterval(noteOut, 3000);
-
-        //Chống chuột phải 
-        window.onload = function () {
-            document.addEventListener("contextmenu", function (e) {
-                e.preventDefault();
-            }, false);
-            document.addEventListener("keydown", function (e) {
-                //document.onkeydown = function(e) {
-                // "I" key
-                if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-                    disabledEvent(e);
-                }
-                // "J" key
-                if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-                    disabledEvent(e);
-                }
-                // "S" key + macOS
-                if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-                    disabledEvent(e);
-                }
-                // "U" key
-                if (e.ctrlKey && e.keyCode == 85) {
-                    disabledEvent(e);
-                }
-                // "F12" key
-                if (event.keyCode == 123) {
-                    disabledEvent(e);
-                }
-            }, false);
-
-            function disabledEvent(e) {
-                if (e.stopPropagation) {
-                    e.stopPropagation();
-                } else if (window.event) {
-                    window.event.cancelBubble = true;
-                }
-                e.preventDefault();
-                return false;
-            }
-        };
-
-        //Chống Ctrl + U
-        document.onkeydown = function (e) {
-            if (e.ctrlKey &&
-                (e.keyCode === 67 ||
-                    e.keyCode === 86 ||
-                    e.keyCode === 85 ||
-                    e.keyCode === 117)) {
-                return false;
-            } else {
-                return true;
-            }
-        };
-        $(document).keypress("u", function (e) {
-            if (e.ctrlKey) return false;
-            else return true;
-        });
+    <script src="script.js">
 
     </script>
     </span>
