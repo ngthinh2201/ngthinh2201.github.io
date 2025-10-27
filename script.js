@@ -44,7 +44,7 @@ function showCommentAlert() {
 }
 
 function shareLink() {
-    const link = "https://doancongsinh.id.vn";
+    const link = "https://ngthinh2201207.id.vn";
     const shareCountElement = document.getElementById("share-count");
 
     let shareCount = parseInt(shareCountElement.textContent.trim()) || 0;
