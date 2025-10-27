@@ -1,14 +1,14 @@
 function initializeHeartCounter() {
     const heartCounter = document.getElementById("heart-counter");
     const savedCount = localStorage.getItem("heartCount");
-    const initialCount = savedCount ? parseInt(savedCount) : 22000; // Khởi tạo với số lượng tim đã lưu hoặc mặc định là 12000
+    const initialCount = savedCount ? parseInt(savedCount) : 22000; 
     document.getElementById("heart-count").textContent = initialCount;
 }
 
 function initializeShareCount() {
     const shareCountElement = document.getElementById("share-count");
     const savedShareCount = localStorage.getItem("shareCount");
-    const initialShareCount = savedShareCount ? parseInt(savedShareCount) : 1; // Khởi tạo với số lượt chia sẻ đã lưu hoặc mặc định là 1
+    const initialShareCount = savedShareCount ? parseInt(savedShareCount) : 1;
     shareCountElement.textContent = initialShareCount;
 }
 
