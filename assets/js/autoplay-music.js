@@ -11,7 +11,7 @@
 
     const getNextSongSrc = () => {
         currentSongIndex = (currentSongIndex + 1) % songs.length;
-        return './music/' + songs[currentSongIndex];
+        return 'music/' + songs[currentSongIndex];
     };
 
     const audio = document.createElement('audio');
@@ -106,6 +106,7 @@
 
 
 })();
+
 
 
 
