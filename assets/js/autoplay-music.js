@@ -1,11 +1,11 @@
 (function () {
     const songs = [
-        'Chờ Em Trong Đêm.mp3',
-        'Hẹn Hò Nhưng Không Yêu.mp3',
-        'Hoa Nở Bên Đường.mp3',
-        'Một Cú Lừa',
-        'Nắng Dưới Chân Mây',
-        'Ai Là Người Thương Em'
+        '1.mp3', // Chờ Em Trong Đêm
+        '2.mp3', // Hẹn Hò Nhưng Không Yêu
+        '3.mp3', // Hoa Nở Bên Đường
+        '4.mp3', // Một Cú Lừa
+        '5.mp3', // Nắng Dưới Chân Mây
+        '6.mp3'  //Ai Là Người Thương Em
     ];
     let currentSongIndex = -1;
 
@@ -106,4 +106,5 @@
 
 
 })();
+
 
