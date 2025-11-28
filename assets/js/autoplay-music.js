@@ -6,7 +6,7 @@
         '4.mp3', // Một Cú Lừa
         '5.mp3', // Nắng Dưới Chân Mây
         '6.mp3',  //Ai Là Người Thương Em
-        '7.mp3
+        '7.mp3'
     ];
     let currentSongIndex = -1;
 
@@ -107,6 +107,7 @@
 
 
 })();
+
 
 
 
