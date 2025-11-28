@@ -6,7 +6,8 @@
         '4.mp3', // Một Cú Lừa
         '5.mp3', // Nắng Dưới Chân Mây
         '6.mp3',  //Ai Là Người Thương Em
-        '7.mp3' // Ngã tư đường
+        '7.mp3', // Ngã Tư Đường
+        '8.mp3'  // Bạn Tình Ơi
     ];
     let currentSongIndex = -1;
 
@@ -107,6 +108,7 @@
 
 
 })();
+
 
 
 
