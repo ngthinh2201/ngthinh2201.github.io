@@ -1,24 +1,5 @@
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Temp
-*.tmp
-*.bak
-*~
-clean-*.ps1
-git-installer.exe
-a
+.tools/
+htdocs.rar
+_out.txt
+_err.txt
+TOM_TAT_PHIEN_LAM_VIEC.md

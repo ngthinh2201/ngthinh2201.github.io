@@ -152,11 +152,11 @@
     }
     function y() {
         $.ajax({
-            url: "https://api.meliodas.info.vn/cham-ngon/", 
+            url: "https://api.meliodas.info.vn/cham-ngon/", // Đảm bảo URL chính xác
             type: "GET",
             dataType: "json",
             success: function (response) {
-                
+                // Kiểm tra nếu trường `msg` tồn tại trong response
                 if (response.msg) {
                     $("#cham-ngon").fadeOut(300, function () {
                         $(this).text(response.msg).fadeIn(300);

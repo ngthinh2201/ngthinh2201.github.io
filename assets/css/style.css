@@ -1,4 +1,4 @@
-#real-time,
+﻿#real-time,
 #waiting-loader span {
     font-weight: 600;
 }
@@ -30,9 +30,9 @@ body {
     -webkit-user-select: none;
 }
 
-
-
-
+/* .bg-background {
+    background-image: url(../img/bg.png) !important;
+} */
 a:hover,
 button,
 select {
@@ -805,29 +805,50 @@ html:not(.dark) .close-btn {
 }
 
 .contact-links {
-    
+    /* 1. Sử dụng Flexbox để căn chỉnh các mục con theo hàng ngang */
     display: flex;
 
-    
+    /* 2. Căn các mục con (a tags) vào giữa theo chiều ngang của div */
     justify-content: center;
-    
+    /* Hoặc 'space-around', 'space-between' tùy ý */
 
-    
+    /* 3. Căn các mục con (a tags) vào giữa theo chiều dọc (nếu div có chiều cao) */
     align-items: center;
 
-    
+    /* 4. Thêm một chút khoảng cách giữa các link để chúng không dính vào nhau */
     gap: 20px;
-    
+    /* Điều chỉnh khoảng cách này theo ý muốn */
 
-    
+    /* Tùy chọn: Thêm khoảng đệm (padding) hoặc lề (margin) cho toàn bộ div */
     padding: 10px;
 }
 
-
+/* Áp dụng cho từng link để căn icon và text */
 .contact-links a {
-    
+    /* Đảm bảo các thuộc tính hiện có của bạn hoạt động (flex-row, items-center, v.v.) */
     text-decoration: none;
-    
+    /* Bỏ gạch chân link */
     color: inherit;
-    
+    /* Giữ màu chữ mặc định hoặc đặt màu cụ thể */
 }
+.pass-wrapper{position:relative;display:inline-flex;flex-direction:column;align-items:center;padding-top:6px}
+.pass-chibi{position:absolute;top:-18px;right:-26px;width:64px;height:64px;pointer-events:none;z-index:5;filter:drop-shadow(0 3px 6px rgba(255,105,135,.3));animation:cat-bob 3.2s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes cat-bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+.pass-form{display:flex;align-items:center;gap:8px;margin-top:14px;padding:6px 6px 6px 14px;background:linear-gradient(135deg,#fff0f5 0%,#fff5fb 60%,#e8f4fd 100%);border:1.5px solid rgba(255,182,193,.6);border-radius:999px;box-shadow:0 2px 10px rgba(255,182,193,.3),0 6px 20px rgba(255,105,135,.12),inset 0 1px 3px rgba(255,255,255,.8);transition:all .3s ease;max-width:260px;position:relative}
+.pass-form:focus-within{border-color:rgba(255,140,170,.8);box-shadow:0 4px 16px rgba(255,182,193,.4),0 8px 28px rgba(255,105,135,.18),inset 0 1px 3px rgba(255,255,255,.9);transform:translateY(-1px) scale(1.01)}
+.pass-input{flex:1;min-width:0;background:transparent;border:none;outline:none;color:#d63384;font-size:.95rem;font-weight:600;letter-spacing:.05em;padding:4px 0}
+.pass-input::placeholder{color:#e0a0bc;font-weight:500}
+.pass-btn{flex-shrink:0;width:36px;height:36px;border:none;border-radius:50%;background:linear-gradient(135deg,#ff8fab 0%,#ffb3c6 50%,#ffc8dd 100%);color:#fff;font-size:1rem;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(255,107,157,.4),0 4px 12px rgba(255,143,171,.25),inset 0 1px 2px rgba(255,255,255,.5);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,background .25s ease;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;position:relative;overflow:hidden}
+.pass-btn:hover{transform:scale(1.12) translateY(-1px);box-shadow:0 5px 14px rgba(255,107,157,.55),0 8px 20px rgba(255,143,171,.35),inset 0 1px 2px rgba(255,255,255,.5)}
+.pass-btn:focus{outline:none;box-shadow:0 0 0 4px rgba(255,143,171,.35),0 2px 8px rgba(255,107,157,.4),inset 0 1px 2px rgba(255,255,255,.5)}
+.pass-btn:active{transform:scale(.9);background:linear-gradient(135deg,#ff7a9c 0%,#ffa3b9 50%,#ffb8d1 100%)}
+.pass-btn::after{content:"💗";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;pointer-events:none;transform:scale(.4)}
+.pass-btn.clicked::after{animation:btnHeart 0.7s ease-out forwards}
+@keyframes btnHeart{0%{opacity:0;transform:scale(.4) translateY(0)}20%{opacity:1;transform:scale(1.2) translateY(-4px)}60%{opacity:.95;transform:scale(1.4) translateY(-18px)}100%{opacity:0;transform:scale(1.7) translateY(-36px)}}
+.pass-btn .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.7);transform:scale(0);animation:btnRipple .65s ease-out;pointer-events:none}
+@keyframes btnRipple{to{transform:scale(2.6);opacity:0}}
+.pass-msg{margin:8px 0 0;font-size:.85rem;min-height:1.1em;color:#d63384;font-weight:500;transition:opacity .2s}
+.pass-msg.error{color:#c9184a}
+.pass-msg.shake{animation:pass-shake .4s}
+@keyframes pass-shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@media(max-width:480px){.pass-form{max-width:220px}}
