@@ -30,6 +30,9 @@ body {
     -webkit-user-select: none;
 }
 
+
+
+
 a:hover,
 button,
 select {
@@ -820,165 +823,11 @@ html:not(.dark) .close-btn {
     padding: 10px;
 }
 
+
 .contact-links a {
     
     text-decoration: none;
     
     color: inherit;
     
-}
-
-.pass-wrapper {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 6px;
-}
-
-.pass-chibi {
-    position: absolute;
-    top: -14px;
-    right: -22px;
-    width: 54px;
-    height: 54px;
-    pointer-events: none;
-    z-index: 5;
-    filter: drop-shadow(0 3px 6px rgba(255, 105, 135, 0.25));
-    animation: cat-bob 3s ease-in-out infinite;
-    transform-origin: 50% 90%;
-}
-
-@keyframes cat-bob {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(-4deg);
-    }
-
-    50% {
-        transform: translateY(-3px) rotate(4deg);
-    }
-}
-
-.pass-form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 14px;
-    padding: 6px 6px 6px 14px;
-    background: linear-gradient(135deg, #fff0f5 0%, #fff5fb 60%, #e8f4fd 100%);
-    border: 1.5px solid rgba(255, 182, 193, 0.6);
-    border-radius: 999px;
-    box-shadow:
-        0 2px 10px rgba(255, 182, 193, 0.3),
-        0 6px 20px rgba(255, 105, 135, 0.12),
-        inset 0 1px 3px rgba(255, 255, 255, 0.8);
-    transition: all 0.3s ease;
-    max-width: 260px;
-    position: relative;
-}
-
-.pass-form:focus-within {
-    border-color: rgba(255, 140, 170, 0.8);
-    box-shadow:
-        0 4px 16px rgba(255, 182, 193, 0.4),
-        0 8px 28px rgba(255, 105, 135, 0.18),
-        inset 0 1px 3px rgba(255, 255, 255, 0.9);
-    transform: translateY(-1px) scale(1.01);
-}
-
-.pass-input {
-    flex: 1;
-    min-width: 0;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #d63384;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 4px 0;
-}
-
-.pass-input::placeholder {
-    color: #e0a0bc;
-    font-weight: 500;
-}
-
-.pass-btn {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 50%, #ffc8dd 100%);
-    color: #fff;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-        0 2px 8px rgba(255, 107, 157, 0.4),
-        0 4px 12px rgba(255, 143, 171, 0.25),
-        inset 0 1px 2px rgba(255, 255, 255, 0.5);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-}
-
-.pass-btn:hover {
-    transform: scale(1.1) translateY(-1px);
-    box-shadow:
-        0 5px 14px rgba(255, 107, 157, 0.55),
-        0 8px 20px rgba(255, 143, 171, 0.35),
-        inset 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-.pass-btn:active {
-    transform: scale(0.95);
-}
-
-.pass-msg {
-    margin: 8px 0 0;
-    font-size: 0.85rem;
-    min-height: 1.1em;
-    color: #d63384;
-    font-weight: 500;
-    transition: opacity 0.2s;
-}
-
-.pass-msg.error {
-    color: #c9184a;
-}
-
-.pass-msg.shake {
-    animation: pass-shake 0.4s;
-}
-
-@keyframes pass-shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    20%,
-    60% {
-        transform: translateX(-6px);
-    }
-
-    40%,
-    80% {
-        transform: translateX(6px);
-    }
-}
-
-@media (max-width: 480px) {
-    .pass-form {
-        max-width: 220px;
-    }
-
-    .pass-input {
-        font-size: 0.85rem;
-    }
 }

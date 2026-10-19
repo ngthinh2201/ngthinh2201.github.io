@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -6,9 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <title>Gá»­i Lan Ã ðŸ’–</title>
-    
-    <audio id="bgm" src="assets/10.mp3" loop preload="auto"></audio>
+    <title>Gửi Hồng Lạc 💖</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@600&family=Be+Vietnam+Pro:wght@300;400;600&display=swap&subset=vietnamese"
       rel="stylesheet"
@@ -93,7 +91,6 @@
         opacity: 0;
         transform: scale(0.92);
         pointer-events: none;
-        visibility: hidden;
       }
       .line {
         display: flex;
@@ -283,23 +280,6 @@
           background-position: -250% 0;
         }
       }
-      .t-solved {
-        font-family: var(--script);
-        font-size: 1rem;
-        color: #ff6fae;
-        margin: 0.2rem 0 0.6rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        opacity: 0;
-        transform: translateY(8px);
-        animation: solvedIn 0.8s ease 0.3s forwards;
-      }
-      @keyframes solvedIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
       .orn {
         display: flex;
         align-items: center;
@@ -458,108 +438,54 @@
         letter-spacing: 0.06em;
         font-weight: 300;
       }
-
-      #bg-wishes {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.8s ease, visibility 0.8s ease;
-      }
-      #bg-wishes.visible {
-        opacity: 1;
-        visibility: visible;
-      }
-      .wish {
-        position: absolute;
-        font-family: "Dancing Script", "Pacifico", "Brush Script MT",
-          "Segoe Script", "Comic Sans MS", cursive, sans-serif;
-        font-weight: 700;
-        white-space: nowrap;
-        color: #ff7eb6;
-        opacity: 0;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8),
-          0 0 10px rgba(255, 158, 200, 0.5);
-        animation: wishFloat linear infinite;
-        will-change: transform, opacity;
-        user-select: none;
-        letter-spacing: 0.02em;
-      }
-      @keyframes wishFloat {
-        0% {
-          transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.9;
-        }
-        50% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 0.6;
-        }
-        100% {
-          transform: translate3d(var(--dx, 30px), -110vh, 0)
-            rotate(calc(var(--rot, 0deg) + var(--drot, 12deg)));
-          opacity: 0;
-        }
-      }
     </style>
   </head>
   <body>
     <div class="glow g1"></div>
     <div class="glow g2"></div>
 
-    
-    <div id="bg-wishes" aria-hidden="true"></div>
-
     <div id="stage">
       <div class="line l1" id="l1"></div>
       <div class="line l2" id="l2"></div>
-      <div id="hint">âœ¦ CÃ³ má»™t thÃ´ng Ä‘iá»‡p Ä‘ang bay láº¡c... âœ¦</div>
-      <button id="btn">Giáº£i mÃ£ ðŸ’Œ</button>
+      <div id="hint">✦ Có một thông điệp đang bay lạc... ✦</div>
+      <button id="btn">Giải mã 💌</button>
     </div>
 
     <div id="card">
       <div class="box">
-        <span class="badge">20 Â· 10 &nbsp;NgÃ y Phá»¥ ná»¯ Viá»‡t Nam</span>
-        <div class="big">ðŸ’–</div>
-        <p class="t1">DÃ nh táº·ng cho</p>
+        <span class="badge">20 · 10 &nbsp;Ngày Phụ nữ Việt Nam</span>
+        <div class="big">💖</div>
+        <p class="t1">Gửi riêng cho</p>
         <h1 class="t2" id="name"></h1>
-        <p class="t-solved">ðŸ”“ Giáº£i mÃ£ thÃ nh cÃ´ng ðŸ’–</p>
-        <div class="orn">â€ â¤ â€</div>
+        <div class="orn">❀ ❤ ❀</div>
         <div id="msg"></div>
         <div class="wishes" id="wishes"></div>
         <div class="quote" id="quote"></div>
         <div class="sign" id="sign"></div>
         <div class="btns" id="btns">
-          
+          <small>nhấn phím Space để thả thêm tim ♡</small>
         </div>
       </div>
     </div>
 
     <script>
       const CFG = {
-        l1: "CHÃšC Má»ªNG 20/10",
-        l2: "LAN Ã",
-        name: "Lan Ã",
+        l1: "CHÚC MỪNG 20/10",
+        l2: "HỒNG LẠC",
+        name: "Hồng Lạc",
         intro:
-          "NhÃ¢n ngÃ y 20/10, chÃºc Lan Ã luÃ´n xinh Ä‘áº¹p, ráº¡ng rá»¡ nhÆ° Ä‘Ã³a há»“ng Ä‘áº§u mÃ¹a. Mong má»—i ngÃ y cá»§a báº¡n Ä‘á»u ngáº­p trÃ n tiáº¿ng cÆ°á»i vÃ  tháº­t nhiá»u yÃªu thÆ°Æ¡ng. ðŸŒ¸",
+          "Nhân ngày 20/10, chúc Hồng Lạc luôn xinh đẹp, rạng rỡ như đóa hồng đầu mùa. Mong mỗi ngày của bạn đều ngập tràn tiếng cười và thật nhiều yêu thương. 🌸",
         wishes: [
-          ["ðŸŒ¸", "LuÃ´n xinh Ä‘áº¹p", "Ráº¡ng rá»¡ tá»« ná»¥ cÆ°á»i Ä‘áº¿n trÃ¡i tim."],
-          ["ðŸ’–", "Tháº­t háº¡nh phÃºc", "Má»—i ngÃ y Ä‘á»u cÃ³ má»™t niá»m vui nhá»."],
-          ["âœ¨", "BÃ¬nh yÃªn", "Nháº¹ nhÃ ng giá»¯a má»i bá»™n bá»."],
-          ["ðŸŒ¹", "ÄÆ°á»£c yÃªu thÆ°Æ¡ng", "Nhiá»u hÆ¡n báº¡n cÃ³ thá»ƒ Ä‘áº¿m háº¿t."],
+          ["🌸", "Luôn xinh đẹp", "Rạng rỡ từ nụ cười đến trái tim."],
+          ["💖", "Thật hạnh phúc", "Mỗi ngày đều có một niềm vui nhỏ."],
+          ["✨", "Bình yên", "Nhẹ nhàng giữa mọi bộn bề."],
+          ["🌹", "Được yêu thương", "Nhiều hơn bạn có thể đếm hết."],
         ],
         quote:
-          "Cáº£m Æ¡n báº¡n vÃ¬ Ä‘Ã£ xuáº¥t hiá»‡n vÃ  lÃ m tháº¿ giá»›i nÃ y dá»‹u dÃ ng hÆ¡n ráº¥t nhiá»u.",
-        sign: "â€” Má»™t ngÆ°á»i luÃ´n nghÄ© Ä‘áº¿n báº¡n ðŸŒ¹",
+          "Cảm ơn bạn vì đã xuất hiện và làm thế giới này dịu dàng hơn rất nhiều.",
+        sign: "— Một người luôn nghĩ đến bạn 🌹",
       };
-      const POOL = "ABCDEFGHIKLMNOPQRSTUVXYÄ‚Ã‚ÃŠÃ”Æ Æ¯0123456789";
+      const POOL = "ABCDEFGHIKLMNOPQRSTUVXYĂÂÊÔƠƯ0123456789";
       const rnd = (a) =>
         Array.isArray(a) || typeof a === "string"
           ? a[Math.floor(Math.random() * a.length)]
@@ -604,11 +530,11 @@
       total = flyers.length;
 
       function init() {
-       
+        
         flyers.forEach((f) =>
           mk(f, parseFloat(getComputedStyle(f.slot).fontSize)),
         );
-       
+        
         for (let i = 0; i < 34; i++) {
           const f = { real: false, c: "", cls: "" };
           flyers.push(f);
@@ -683,30 +609,9 @@
         f.slot.classList.add("ok");
         sparkle(f.slot);
         if (++landed === total) {
-          $("hint").textContent = "Giáº£i mÃ£ thÃ nh cÃ´ng ðŸ’–";
+          $("hint").textContent = "Giải mã thành công 💖";
           heartStorm();
-         
-         
-         
-          setTimeout(() => {
-           
-            $("stage").classList.add("hide");
-           
-            const bgm = document.getElementById('bgm');
-            if (bgm) {
-              bgm.volume = 0.6;
-              const p = bgm.play();
-              if (p && p.catch) p.catch(() => {});
-            }
-           
-            const bw = $("bg-wishes");
-            if (bw) bw.classList.add("visible");
-            if (typeof window.openScratchOverlay === "function") {
-              window.openScratchOverlay(showCard);
-            } else {
-              showCard();
-            }
-          }, 800);
+          setTimeout(showCard, 1800);
         }
       }
       setInterval(
@@ -722,7 +627,7 @@
         if (decoding) return;
         decoding = true;
         $("btn").style.display = "none";
-        $("hint").textContent = "CÃ¡c chá»¯ cÃ¡i Ä‘ang tÃ¬m vá» nhau... âœ¨";
+        $("hint").textContent = "Các chữ cái đang tìm về nhau... ✨";
         let i = 0;
         flyers.forEach((f) => {
           if (f.real) {
@@ -767,7 +672,7 @@
       function sparkle(el) {
         const r = el.getBoundingClientRect();
         for (let i = 0; i < 4; i++)
-          burst(r.left + r.width / 2, r.top + r.height / 2, "âœ¦", 10);
+          burst(r.left + r.width / 2, r.top + r.height / 2, "✦", 10);
       }
       function burst(x, y, ch, size) {
         const b = document.createElement("div");
@@ -777,7 +682,7 @@
         document.body.appendChild(b);
         setTimeout(() => b.remove(), 900);
       }
-      const HEARTS = ["â¤", "ðŸ’–", "ðŸ’—", "ðŸ’•", "ðŸ’˜", "ðŸŒ¸", "ðŸŒ¹", "ðŸ’"];
+      const HEARTS = ["❤", "💖", "💗", "💕", "💘", "🌸", "🌹", "💝"];
       function heart() {
         const h = document.createElement("div");
         h.className = "heart";
@@ -794,7 +699,8 @@
       function showCard() {
         $("stage").classList.add("hide");
         $("card").classList.add("show");
-       
+        setInterval(heart, 280);
+        heartStorm();
         let i = 0;
         setTimeout(function type() {
           $("msg").textContent = CFG.intro.slice(0, ++i);
@@ -820,7 +726,7 @@
       });
       const cur = document.createElement("div");
       cur.id = "cur";
-      cur.innerHTML = "<span>â¤</span>";
+      cur.innerHTML = "<span>❤</span>";
       document.body.appendChild(cur);
       let lt = 0;
       addEventListener("pointermove", (e) => {
@@ -831,7 +737,7 @@
         lt = n;
         const t = document.createElement("div");
         t.className = "trail";
-        t.textContent = rnd(["â¤", "ðŸ’–", "ðŸ’—", "ðŸ’•"]);
+        t.textContent = rnd(["❤", "💖", "💗", "💕"]);
         t.style.cssText += `left:${e.clientX}px;top:${e.clientY}px;font-size:${R(10, 20)}px;--tx:${R(-30, 30)}px`;
         document.body.appendChild(t);
         setTimeout(() => t.remove(), 1100);
@@ -843,377 +749,6 @@
             burst(e.clientX, e.clientY, rnd(HEARTS), 18);
         }
       });
-    </script>
-
-    
-    <div id="scratch-overlay" aria-hidden="true">
-        <canvas id="scratch-canvas"></canvas>
-    </div>
-
-    <style>
-        #scratch-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483600;
-            background: transparent;
-            overflow: hidden;
-            transition: opacity 0.6s ease;
-            opacity: 1;
-        }
-        #scratch-overlay.is-fading {
-            opacity: 0;
-            pointer-events: none;
-        }
-        #scratch-overlay.is-done {
-            display: none;
-        }
-        #scratch-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            cursor: none;
-            touch-action: none;
-        }
-    </style>
-
-    <script>
-        (function () {
-           
-           
-            const overlay = document.getElementById('scratch-overlay');
-            const canvas = document.getElementById('scratch-canvas');
-            if (!overlay || !canvas) return;
-
-           
-            overlay.classList.add('is-done');
-
-            const ctx = canvas.getContext('2d', { willReadFrequently: true });
-            let isDrawing = false;
-            let lastX = 0;
-            let lastY = 0;
-            let revealedRatio = 0;
-            let fadeTimer = null;
-            let onCompleteCb = null;
-
-           
-            const REVEAL_THRESHOLD = 0.8;
-            const BRUSH_RADIUS = 55;
-
-            function resize() {
-                const dpr = Math.max(1, window.devicePixelRatio || 1);
-                const w = window.innerWidth;
-                const h = window.innerHeight;
-                canvas.width = w * dpr;
-                canvas.height = h * dpr;
-                canvas.style.width = w + 'px';
-                canvas.style.height = h + 'px';
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-                paint();
-            }
-
-            function paint() {
-                const w = canvas.clientWidth;
-                const h = canvas.clientHeight;
-               
-                const grad = ctx.createLinearGradient(0, 0, w, h);
-                grad.addColorStop(0, 'rgba(255, 255, 255, 0.985)');
-                grad.addColorStop(0.5, 'rgba(245, 240, 245, 0.985)');
-                grad.addColorStop(1, 'rgba(235, 230, 240, 0.985)');
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, 0, w, h);
-               
-            }
-
-            function scratch(x, y) {
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.beginPath();
-                ctx.arc(x, y, BRUSH_RADIUS, 0, Math.PI * 2);
-                ctx.fill();
-
-               
-                ctx.lineWidth = BRUSH_RADIUS * 2;
-                ctx.lineCap = 'round';
-                ctx.lineJoin = 'round';
-                ctx.beginPath();
-                ctx.moveTo(lastX, lastY);
-                ctx.lineTo(x, y);
-                ctx.stroke();
-            }
-
-            function getPos(e) {
-                if (e.touches && e.touches[0]) {
-                    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-                }
-                return { x: e.clientX, y: e.clientY };
-            }
-
-            function checkReveal() {
-               
-                if (revealedRatio > REVEAL_THRESHOLD) return;
-                const w = canvas.width;
-                const h = canvas.height;
-                const step = 32;
-                let cleared = 0;
-                let total = 0;
-                for (let y = 0; y < h; y += step) {
-                    for (let x = 0; x < w; x += step) {
-                        const data = ctx.getImageData(x, y, 1, 1).data;
-                        total++;
-                       
-                        if (data[3] < 50) cleared++;
-                    }
-                }
-                revealedRatio = cleared / total;
-                if (revealedRatio > REVEAL_THRESHOLD) {
-                    fadeOut();
-                }
-            }
-
-            let checkTimer = null;
-            function scheduleCheck() {
-                if (checkTimer) return;
-                checkTimer = setTimeout(() => {
-                    checkTimer = null;
-                    checkReveal();
-                }, 350);
-            }
-
-            function fadeOut() {
-                if (fadeTimer) return;
-                fadeTimer = setTimeout(() => {
-                    overlay.classList.add('is-fading');
-                    setTimeout(() => {
-                        overlay.classList.add('is-done');
-                       
-                        isDrawing = false;
-                        revealedRatio = 0;
-                        fadeTimer = null;
-                       
-                        if (typeof onCompleteCb === 'function') {
-                            const cb = onCompleteCb;
-                            onCompleteCb = null;
-                            cb();
-                        }
-                    }, 650);
-                }, 400);
-            }
-
-           
-            function resetOverlay() {
-                overlay.classList.remove('is-done', 'is-fading', 'is-active');
-                overlay.style.opacity = '1';
-                resize();
-            }
-
-           
-            canvas.addEventListener('mousedown', (e) => {
-                isDrawing = true;
-                const p = getPos(e);
-                lastX = p.x;
-                lastY = p.y;
-                scratch(p.x, p.y);
-                overlay.classList.add('is-active');
-                e.preventDefault();
-            });
-            canvas.addEventListener('mousemove', (e) => {
-                if (!isDrawing) return;
-                const p = getPos(e);
-                scratch(p.x, p.y);
-                lastX = p.x;
-                lastY = p.y;
-                scheduleCheck();
-            });
-            window.addEventListener('mouseup', () => {
-                isDrawing = false;
-            });
-            canvas.addEventListener('mouseleave', () => {
-                isDrawing = false;
-            });
-
-           
-            canvas.addEventListener('touchstart', (e) => {
-                isDrawing = true;
-                const p = getPos(e);
-                lastX = p.x;
-                lastY = p.y;
-                scratch(p.x, p.y);
-                overlay.classList.add('is-active');
-                e.preventDefault();
-            }, { passive: false });
-            canvas.addEventListener('touchmove', (e) => {
-                if (!isDrawing) return;
-                const p = getPos(e);
-                scratch(p.x, p.y);
-                lastX = p.x;
-                lastY = p.y;
-                scheduleCheck();
-                e.preventDefault();
-            }, { passive: false });
-            canvas.addEventListener('touchend', () => { isDrawing = false; });
-
-           
-            canvas.addEventListener('click', (e) => {
-                const p = getPos(e);
-                scratch(p.x, p.y);
-                scheduleCheck();
-            });
-
-            window.addEventListener('resize', resize);
-            resize();
-
-           
-           
-           
-           
-            function autoDrawHeart() {
-                const w = canvas.clientWidth;
-                const h = canvas.clientHeight;
-               
-                const scale = Math.min(w, h) * 0.022;
-                const cx = w / 2;
-                const cy = h / 2 + scale * 1.2;
-
-                const N = 140;
-                const pts = [];
-                for (let k = 0; k <= N; k++) {
-                    const t = (k / N) * Math.PI * 2;
-                    const sx = 16 * Math.pow(Math.sin(t), 3);
-                    const sy = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
-                    pts.push({ x: cx + sx * scale, y: cy + sy * scale });
-                }
-
-               
-                const brushR = Math.max(16, Math.min(22, Math.min(w, h) * 0.018));
-               
-                const drawSpeed = 6;
-                let i = 0;
-
-                function step() {
-                    for (let k = 0; k < drawSpeed && i < pts.length; k++, i++) {
-                        const p = pts[i];
-                       
-                        ctx.globalCompositeOperation = 'destination-out';
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, brushR, 0, Math.PI * 2);
-                        ctx.fill();
-
-                       
-                        if (i > 0) {
-                            const prev = pts[i - 1];
-                            ctx.lineWidth = brushR * 2;
-                            ctx.lineCap = 'round';
-                            ctx.lineJoin = 'round';
-                            ctx.beginPath();
-                            ctx.moveTo(prev.x, prev.y);
-                            ctx.lineTo(p.x, p.y);
-                            ctx.stroke();
-                        }
-                    }
-                    if (i < pts.length) {
-                        requestAnimationFrame(step);
-                    }
-                   
-                }
-               
-                setTimeout(() => requestAnimationFrame(step), 150);
-            }
-
-           
-            window.openScratchOverlay = function (onComplete) {
-                onCompleteCb = typeof onComplete === 'function' ? onComplete : null;
-                resetOverlay();
-               
-                setTimeout(autoDrawHeart, 200);
-            };
-        })();
-    </script>
-
-    <script>
-       
-        (function () {
-            const box = document.getElementById('bg-wishes');
-            if (!box) return;
-
-            const WISHES = [
-                'ChÃºc Lan Ã 20/10 vui váº» ðŸŒ¸',
-                'Háº¡nh phÃºc ngáº­p trÃ n ðŸ’–',
-                'LuÃ´n xinh Ä‘áº¹p ráº¡ng ngá»i âœ¨',
-                'MÃ£i yÃªu Ä‘á»i nhÃ© ðŸŒ·',
-                'YÃªu thÆ°Æ¡ng tháº­t nhiá»u ðŸ’•',
-                'Smile today ðŸ˜Š',
-                'CÆ°á»i tÆ°Æ¡i má»—i ngÃ y nhÃ© ðŸŒ¼',
-                '20/10 háº¡nh phÃºc ðŸŒ¹',
-                'Forever shining ðŸ’«',
-                'Be happy ðŸŒ¸',
-                'Sweet 20/10 ðŸ°',
-                'Gá»­i Lan Ã nhiá»u yÃªu thÆ°Æ¡ng ðŸ’Œ',
-                'Mong má»i Ä‘iá»u tá»‘t Ä‘áº¹p ðŸŒŸ',
-                'BÃ¬nh yÃªn nha ðŸ€',
-                'Tá»a sÃ¡ng nhÆ° náº¯ng mai â˜€ï¸',
-                'HÃ´m nay lÃ  cá»§a báº¡n ðŸ‘‘',
-                'BÃ´ng hoa Ä‘áº¹p nháº¥t ðŸŒº',
-                'ÄÆ°á»£c yÃªu thÆ°Æ¡ng tháº­t nhiá»u ðŸ’',
-                'NgÃ y Ä‘áº·c biá»‡t cá»§a báº¡n ðŸ’',
-                'MÃ£i lÃ  cÃ´ gÃ¡i Ä‘Ã¡ng yÃªu nÃ y ðŸ¦‹',
-            ];
-
-            const COLORS = [
-                '#ff7eb6',
-                '#c79bff',
-                '#7eb8ff',
-                '#ffb27e',
-                '#ff9eb5',
-                '#a8d8ff',
-                '#ffc2a8',
-                '#d8a8ff',
-                '#ff8fa3',
-                '#9ed4ff',
-            ];
-
-           
-           
-            function randEdgeX() {
-                if (Math.random() < 0.5) {
-                    return Math.random() * 18;
-                } else {
-                    return 82 + Math.random() * 16;
-                }
-            }
-
-           
-            const COUNT = 8;
-            for (let i = 0; i < COUNT; i++) {
-                const el = document.createElement('div');
-                el.className = 'wish';
-                el.textContent = WISHES[Math.floor(Math.random() * WISHES.length)];
-
-                const fontSize = 16 + Math.random() * 6;
-                const dur = 18 + Math.random() * 12;
-                const delay = -Math.random() * dur;
-                const left = randEdgeX();
-                const top = 100 + Math.random() * 20;
-                const dx = (Math.random() - 0.5) * 30;
-                const rot = (Math.random() - 0.5) * 20;
-                const drot = (Math.random() - 0.5) * 20;
-                const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-
-                el.style.cssText = [
-                    `left:${left}vw`,
-                    `top:${top}vh`,
-                    `font-size:${fontSize}px`,
-                    `color:${color}`,
-                    `animation-duration:${dur}s`,
-                    `animation-delay:${delay}s`,
-                    `--dx:${dx}px`,
-                    `--rot:${rot}deg`,
-                    `--drot:${drot}deg`,
-                ].join(';');
-
-                box.appendChild(el);
-            }
-        })();
     </script>
     </body>
 </html>
